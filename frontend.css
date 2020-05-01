@@ -1,0 +1,106 @@
+/*
+ * Gridism
+ * A simple, responsive, and handy CSS grid by @cobyism
+ * https://github_com/cobyism/gridism
+ */
+
+/* Preserve some sanity */
+.obo_grid,
+.obo_unit {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* Set up some rules to govern the grid */
+.obo_grid {
+  display: block;
+  clear: both;
+}
+.obo_grid .obo_unit {
+  float: left;
+  width: 100%;
+  padding: 10px;
+}
+.obo_unit img {
+	max-width:100%;
+	height:auto !important;
+}
+/* This ensures the outer gutters are equal to the (doubled) inner gutters.obo_ 
+.obo_grid .obo_unit:first-child { padding-left: 20px; }
+.obo_grid .obo_unit:last-child { padding-right: 20px; }*/
+/* Nested grids already have padding though, so let’s nuke it */
+.obo_unit .obo_unit:first-child { padding-left: 0; }
+.obo_unit .obo_unit:last-child { padding-right: 0; }
+.obo_unit .obo_grid:first-child > .obo_unit { padding-top: 0; }
+.obo_unit .obo_grid:last-child > .obo_unit { padding-bottom: 0; }
+/* Let people nuke the gutters/padding completely in a couple of ways */
+.obo_no-gutters .obo_unit,
+.obo_unit.obo_no-gutters {
+  padding: 0 !important;
+}
+/* Wrapping at a maximum width is optional */
+.obo_wrap .obo_grid,
+.obo_grid.obo_wrap {
+  max-width: 978px;
+  margin: 0 auto;
+}
+/* Width classes also have shorthand versions numbered as fractions
+ * For example: for a grid unit 1/3 (one third) of the parent width,
+ * simply apply class="w-1-3" to the element.obo_ */
+.obo_grid .obo_whole,          .obo_grid .obo_w-1-1 { width: 100%; }
+.obo_grid .obo_half,           .obo_grid .obo_w-1-2 { width: 50%; }
+.obo_grid .obo_one-third,      .obo_grid .obo_w-1-3 { width: 33.3332%; }
+.obo_grid .obo_two-thirds,     .obo_grid .obo_w-2-3 { width: 66.6665%; }
+.obo_grid .obo_one-quarter,    .obo_grid .obo_w-1-4 { width: 25%; }
+.obo_grid .obo_three-quarters, .obo_grid .obo_w-3-4 { width: 75%; }
+.obo_grid .obo_one-fifth,      .obo_grid .obo_w-1-5 { width: 20%; }
+.obo_grid .obo_two-fifths,     .obo_grid .obo_w-2-5 { width: 40%; }
+.obo_grid .obo_three-fifths,   .obo_grid .obo_w-3-5 { width: 60%; }
+.obo_grid .obo_four-fifths,    .obo_grid .obo_w-4-5 { width: 80%; }
+.obo_grid .obo_golden-small,   .obo_grid .obo_w-g-s { width: 38.2716%; } /* Golden section: smaller piece */
+.obo_grid .obo_golden-large,   .obo_grid .obo_w-g-l { width: 61.7283%; } /* Golden section: larger piece */
+/* Clearfix after every .obo_grid */
+.obo_grid {
+  *zoom: 1;
+}
+.obo_grid:before, .obo_grid:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.obo_grid:after {
+  clear: both;
+}
+/* Utility classes */
+.obo_align-center { text-align: center; }
+.obo_align-left   { text-align: left; }
+.obo_align-right  { text-align: right; }
+.obo_pull-left    { float: left; }
+.obo_pull-right   { float: right; }
+/* Responsive Stuff */
+@media screen and (max-width: 568px) {
+  /* Stack anything that isn’t full-width on smaller screens */
+  .obo_grid .obo_unit {
+    width: 100% !important;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .obo_unit .obo_grid .obo_unit {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  /* Sometimes, you just want to be different on small screens */
+  .obo_center-on-mobiles {
+    text-align: center !important;
+  }
+  .obo_hide-on-mobiles {
+    display: none !important;
+  }
+}
+/* Expand the wrap a bit further on larger screens */
+@media screen and (min-width: 1180px) {
+  .obo_wider .obo_grid {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+}
