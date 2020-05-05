@@ -13,10 +13,12 @@ if(count(get_included_files()) ==1){$z="HTTP/1.0 404 Not Found";header($z);die($
 require_once (WB_PATH."/modules/onebyone/includes/get_tpl_file.php");
 
 //Load Language Files
-if(file_exists(WB_PATH.'/modules/onebyone/languages/'.LANGUAGE.'.php')) 
-	require_once(WB_PATH.'/modules/onebyone/languages/EN.php');
-if(file_exists(WB_PATH.'/modules/onebyone/languages/'.LANGUAGE.'.php')) 
+if (file_exists(WB_PATH.'/modules/onebyone/languages/'.LANGUAGE.'.php')) {
 	require_once(WB_PATH.'/modules/onebyone/languages/'.LANGUAGE.'.php');
+}
+else {
+	require_once(WB_PATH.'/modules/onebyone/languages/EN.php');
+}
 
 
 $content1_code='';

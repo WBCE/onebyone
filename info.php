@@ -14,16 +14,19 @@ if(count(get_included_files()) ==1){$z="HTTP/1.0 404 Not Found";header($z);die($
 $module_directory = 'onebyone';
 $module_name = 'onebyone';
 $module_function = 'page';
-$module_version = '0.4';
+$module_version = '0.5';
 $module_platform = '1.4.x';
 $module_author = 'florian, Bernd Michna';
 $module_license = 'WTFPL';
-$module_description = 'This module can display some contents one by one';
+$module_description = 'This module can display some contents side by side';
 
 /*
+0.5 2020/05/05
+! fix language issue, thanks to kleo/bernd
+
 
 0.4 2020/05/01
-+ Tab persistence
++ Tab persistence, thanks to bernd
 ! remove duplicate simpletab js
 
 0.3 2020/05/01
