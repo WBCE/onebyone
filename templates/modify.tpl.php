@@ -124,7 +124,7 @@ require_once(WB_PATH .'/modules/onebyone/module_settings.php');
 			</div>
 			<div class="settingValue">
 				<select id="obo_dimensions<?php echo $section_id?>" name="obo_dimensions<?php echo $section_id?>">
-					<option disabled>...</option>
+					<option disabled >...</option>
 					<option <?php if ($obo_dimensions=='2080') { echo 'selected'; } ?> value="2080">20% - 80%</option>
 					<option <?php if ($obo_dimensions=='4060') { echo 'selected'; } ?> value="4060">40% - 60%</option>
 					<option <?php if ($obo_dimensions=='6040') { echo 'selected'; } ?> value="6040">60% - 40%</option>
@@ -134,6 +134,8 @@ require_once(WB_PATH .'/modules/onebyone/module_settings.php');
 					<option <?php if ($obo_dimensions=='2575') { echo 'selected'; } ?> value="2575">25% - 75%</option>
 					<option <?php if ($obo_dimensions=='7525') { echo 'selected'; } ?> value="7525">75% - 25%</option>
 					<option <?php if ($obo_dimensions=='5050') { echo 'selected'; } ?> value="5050">50% - 50%</option>
+					<option <?php if ($obo_dimensions=='1000') { echo 'selected'; } ?> value="1000">100% - 0%</option>
+					<option <?php if ($obo_dimensions=='0100') { echo 'selected'; } ?> value="0100">0% - 100%</option>
 				</select>
 			</div>
 		</div>

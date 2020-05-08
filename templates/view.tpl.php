@@ -47,21 +47,33 @@ if ($obo_modus=='obo') {
 			$unitleft  = 'obo_half';
 			$unitright = 'obo_half';
 		break;
+		case ('1000'):
+			$unitleft = 'obo_whole';
+			$unitright= 'false';
+		break;
+		case ('0100'):
+			$unitleft = 'false';
+			$unitright= 'whole';
+		break;
 	}
 	?>
 	<div class="obo_grid obo_<?= $section_id; ?>">
-		<div class="obo_unit obo_left <?=$unitleft ?>">
+			<?php if ($unitleft!='false') { ?>
+			<div class="obo_unit obo_left <?=$unitleft ?>">
 				<?php 
 				echo $content1_wysiwyg;
 				echo $content1_code;
 				?>
 			</div>
+			<?php }
+			if ($unitright!='false') { ?>
 			<div class="obo_unit obo_right <?=$unitright ?>">
 				<?php 
 				echo $content2_wysiwyg;
 				echo $content2_code;
 				?>
 			</div>
+			<?php } ?>
 	</div>
 	<?php
 } else {

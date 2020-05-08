@@ -11,12 +11,8 @@ if(count(get_included_files()) ==1){$z="HTTP/1.0 404 Not Found";header($z);die($
 
 
 //Load Language Files
-if (file_exists(WB_PATH.'/modules/onebyone/languages/'.LANGUAGE.'.php')) {
-	require_once(WB_PATH.'/modules/onebyone/languages/'.LANGUAGE.'.php');
-}
-else {
-	require_once(WB_PATH.'/modules/onebyone/languages/EN.php');
-}
+$lang = __DIR__ . '/languages/' . LANGUAGE . '.php';
+require (!file_exists($lang) ? __DIR__ . '/languages/EN.php' : $lang);
 	
 // Fetch media URL for replacing {SYSVAR:MEDIA_REL}
 $sMediaUrl = WB_URL.MEDIA_DIRECTORY;
