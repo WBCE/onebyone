@@ -14,16 +14,22 @@ if(count(get_included_files()) ==1){$z="HTTP/1.0 404 Not Found";header($z);die($
 $module_directory = 'onebyone';
 $module_name = 'onebyone';
 $module_function = 'page';
-$module_version = '0.8';
+$module_version = '0.9';
 $module_platform = '1.4.x';
 $module_author = 'florian, Bernd Michna';
 $module_license = 'WTFPL';
 $module_description = 'This module can display some contents side by side';
 
 /*
+
+0.8 2020/12/28 (Stefek)
++ Added setting to disable/enable 3 blocks mode (limit confusion for low skill users)
++ Added setting that will copy modus and dimensions from latest obo section when a new section is created (add.php) 
++ Added setting with which you can determine what dimensions can be selected by the user 
+
+
 0.8 2020/12/15
 + Added search.php
-
 
 0.7 2020/05/27
 ! Fix for Fatal Error when used with other wysiwyg2 based modules on the same page (thx to Bernd)
