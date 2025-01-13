@@ -38,83 +38,322 @@ if (DEFAULT_THEME != 'argos_theme_reloaded') : ?>
 		</ul>
 		
 		<div class="cpForm obo_contentbox" id="obotab<?=$section_id; ?>1">
-		<?php if ($use_wysiwyg) { ?>
 			<div class="formRow">
 				<div class="settingName">
-					<?=$OBO['CONTENT_WYSIWYG']?> 1:
+					<?php echo $OBO['HEADLINE']?> 1:
 				</div>
 				<div class="settingValue">
-					<?php
-					show_wysiwyg_editor('content1_wysiwyg'.$section_id,'content1_wysiwyg'.$section_id,$content1_wysiwyg,'100%',$wysiwyg_size);
-					?>
+					<input type="text" value="<?php echo $obo_content1_headline; ?>" id="obo_content1_headline<?php echo $section_id; ?>" name="obo_content1_headline<?php echo $section_id; ?>">
 				</div>
 			</div>
-		<?php }
-		if ($use_code) { ?>
+			
 			<div class="formRow">
 				<div class="settingName">
-					<?=$OBO['CONTENT_CODE']?> 1:
+					<?=$OBO['HEADLINE_SIZE']?>:
 				</div>
 				<div class="settingValue">
-					<textarea id="content1_code<?=$section_id?>" name="content1_code<?=$section_id?>"><?=$content1_code?></textarea>
+					<select id="obo_content1_headline_size<?=$section_id?>" name="obo_content1_headline_size<?=$section_id?>">
+						<option disabled>...</option>
+						<option <?php if ($obo_content1_headline_size=='h1') { echo 'selected'; } ?> value="h1">H1</option>					
+						<option <?php if ($obo_content1_headline_size=='h2') { echo 'selected'; } ?> value="h2">H2</option>					
+						<option <?php if ($obo_content1_headline_size=='h3') { echo 'selected'; } ?> value="h3">H3</option>					
+						<option <?php if ($obo_content1_headline_size=='h4') { echo 'selected'; } ?> value="h4">H4</option>					
+						<option <?php if ($obo_content1_headline_size=='h5') { echo 'selected'; } ?> value="h5">H5</option>					
+						<option <?php if ($obo_content1_headline_size=='div') { echo 'selected'; } ?> value="div">div</option>					
+						<option <?php if ($obo_content1_headline_size=='p') { echo 'selected'; } ?> value="p">p</option>					
+					</select>
 				</div>
 			</div>
-		<?php } ?>
+			
+			<div class="formRow">
+				<div class="settingName">
+					<?php echo $OBO['LINK_TO_PAGE_ID']?> 1:
+				</div>
+				<div class="settingValue">
+					<input type="number" value="<?php echo $obo_content1_link; ?>" id="obo_content1_link<?php echo $section_id; ?>" name="obo_content1_link<?php echo $section_id; ?>"><br>
+					<?php echo $OBO['LINK_TO_PAGE_ID_INFO'] ?>
+				</div>
+			</div>
+			
+			<div class="formRow">
+				<div class="settingName">
+					<?php echo $OBO['IMAGE']?> 1:
+				</div>
+				<div class="settingValue">
+					<input type="file" size="50" id="obo_content1_image<?php echo $section_id?>" name="obo_content1_image<?php echo $section_id?>"  value="" />  
+					<?php if ($obo_content1_image != '') { ?>
+					<input type="checkbox" id="obo_content1_delete_image<?php echo $section_id?>" name="obo_content1_delete_image<?php echo $section_id?>" value="Delete" ><label for="obo_content1_delete_image<?php echo $section_id?>"><?php echo $OBO['DELETE_IMAGE']?></label><br>
+					<input type="hidden" name="obo_image1_fullname<?php echo $section_id?>" value="<?php echo $obo_content1_image ?>" />
+					<?php $obo_content1_image_preview = str_replace('{SYSVAR:MEDIA_REL}', WB_URL.MEDIA_DIRECTORY, $obo_content1_image ); ?>
+					<img src="<?php echo $obo_content1_image_preview; ?>" style="width:100px; height:auto" title="" alt=""> 
+					<?php } ?>
+				</div>
+			</div>
+			<div class="formRow">
+				<div class="settingName">
+					<?php echo $OBO['IMAGE_ALT']?> 1:
+				</div>
+				<div class="settingValue">
+					<input type="text" value="<?php echo $obo_content1_image_alt; ?>" id="obo_content1_img_alt<?php echo $section_id; ?>" name="obo_content1_img_alt<?php echo $section_id; ?>">
+				</div>
+			</div>
+			
+		
+			<?php if ($use_wysiwyg) { ?>
+				<div class="formRow">
+					<div class="settingName">
+						<?=$OBO['CONTENT_WYSIWYG']?> 1:
+					</div>
+					<div class="settingValue">
+						<?php
+						show_wysiwyg_editor('content1_wysiwyg'.$section_id,'content1_wysiwyg'.$section_id,$content1_wysiwyg,'100%',$wysiwyg_size);
+						?>
+					</div>
+				</div>
+			<?php }
+			if ($use_code) { ?>
+				<div class="formRow">
+					<div class="settingName">
+						<?=$OBO['CONTENT_CODE']?> 1:
+					</div>
+					<div class="settingValue">
+						<textarea id="content1_code<?=$section_id?>" name="content1_code<?=$section_id?>"><?=$content1_code?></textarea>
+					</div>
+				</div>
+			<?php } ?>
+		
+		
+		<? // -------------------------------------------------------------------------------------------------------------------------------------------------- ?>
 
 		</div>
 		<div class="cpForm obo_contentbox" id="obotab<?=$section_id; ?>2">
-		<?php if ($use_wysiwyg) { ?>
-			<div class="formRow">
+		
+		<div class="formRow">
 				<div class="settingName">
-					<?=$OBO['CONTENT_WYSIWYG']?> 2:
+					<?php echo $OBO['HEADLINE']?> 2:
 				</div>
 				<div class="settingValue">
-					<?php
-					show_wysiwyg_editor('content2_wysiwyg'.$section_id,'content2_wysiwyg'.$section_id,$content2_wysiwyg,'100%',$wysiwyg_size);
-					?>
+					<input type="text" value="<?php echo $obo_content2_headline; ?>" id="obo_content2_headline<?php echo $section_id; ?>" name="obo_content2_headline<?php echo $section_id; ?>">
 				</div>
-			</div>
-		<?php }
-		if ($use_code) { ?>
+			</div>						
+			
 			<div class="formRow">
 				<div class="settingName">
-					<?=$OBO['CONTENT_CODE']?> 2:
+					<?=$OBO['HEADLINE_SIZE']?>:
 				</div>
 				<div class="settingValue">
-					<textarea id="content2_code<?=$section_id?>" name="content2_code<?=$section_id?>"><?=$content2_code?></textarea>
+					<select id="obo_content2_headline_size<?=$section_id?>" name="obo_content2_headline_size<?=$section_id?>">
+						<option disabled>...</option>
+						<option <?php if ($obo_content2_headline_size=='h1') { echo 'selected'; } ?> value="h1">H1</option>					
+						<option <?php if ($obo_content2_headline_size=='h2') { echo 'selected'; } ?> value="h2">H2</option>					
+						<option <?php if ($obo_content2_headline_size=='h3') { echo 'selected'; } ?> value="h3">H3</option>					
+						<option <?php if ($obo_content2_headline_size=='h4') { echo 'selected'; } ?> value="h4">H4</option>					
+						<option <?php if ($obo_content2_headline_size=='h5') { echo 'selected'; } ?> value="h5">H5</option>					
+						<option <?php if ($obo_content2_headline_size=='div') { echo 'selected'; } ?> value="div">div</option>					
+						<option <?php if ($obo_content2_headline_size=='p') { echo 'selected'; } ?> value="p">p</option>					
+					</select>
 				</div>
 			</div>
-		<?php } ?>
-
-
-		</div>
+			
+			<div class="formRow">
+				<div class="settingName">
+					<?php echo $OBO['LINK_TO_PAGE_ID']?> 2:
+				</div>
+				<div class="settingValue">
+					<input type="number" value="<?php echo $obo_content2_link; ?>" id="obo_content2_link<?php echo $section_id; ?>" name="obo_content2_link<?php echo $section_id; ?>"><br>
+					<?php echo $OBO['LINK_TO_PAGE_ID_INFO'] ?>
+				</div>
+			</div>
+			
+			<div class="formRow">
+				<div class="settingName">
+					<?php echo $OBO['IMAGE']?> 2:
+				</div>
+				<div class="settingValue">
+					<input type="file" size="50" id="obo_content2_image<?php echo $section_id?>" name="obo_content2_image<?php echo $section_id?>"  value="" />  
+					<?php if ($obo_content2_image != '') { ?>
+					<input type="checkbox" id="obo_content2_delete_image<?php echo $section_id?>" name="obo_content2_delete_image<?php echo $section_id?>" value="Delete" ><label for="obo_content2_delete_image<?php echo $section_id?>"><?php echo $OBO['DELETE_IMAGE']?>
+					</label><br>		
+					<input type="hidden" name="obo_image2_fullname<?php echo $section_id?>" value="<?php echo $obo_content2_image ?>" />
+					<?php $obo_content2_image_preview = str_replace('{SYSVAR:MEDIA_REL}', WB_URL.MEDIA_DIRECTORY, $obo_content2_image ); ?>
+					<img src="<?php echo $obo_content2_image_preview?>" style="width:100px; height:auto" title="" alt=""> 
+					<?php } ?>
+				</div>
+			</div>
+			<div class="formRow">
+				<div class="settingName">
+					<?php echo $OBO['IMAGE_ALT']?> 2:
+				</div>
+				<div class="settingValue">
+					<input type="text" value="<?php echo $obo_content2_image_alt; ?>" id="obo_content2_img_alt<?php echo $section_id; ?>" name="obo_content2_img_alt<?php echo $section_id; ?>">
+				</div>
+			</div>
+		
+			<?php if ($use_wysiwyg) { ?>
+				<div class="formRow">
+					<div class="settingName">
+						<?=$OBO['CONTENT_WYSIWYG']?> 2:
+					</div>
+					<div class="settingValue">
+						<?php
+						show_wysiwyg_editor('content2_wysiwyg'.$section_id,'content2_wysiwyg'.$section_id,$content2_wysiwyg,'100%',$wysiwyg_size);
+						?>
+					</div>
+				</div>
+			<?php }
+			if ($use_code) { ?>
+				<div class="formRow">
+					<div class="settingName">
+						<?=$OBO['CONTENT_CODE']?> 2:
+					</div>
+					<div class="settingValue">
+						<textarea id="content2_code<?=$section_id?>" name="content2_code<?=$section_id?>"><?=$content2_code?></textarea>
+					</div>
+				</div>
+			<?php } ?>
+			</div>
+		
+		<? // -------------------------------------------------------------------------------------------------------------------------------------------------- ?>
+		
 		<?php if($use_third_box): ?>
 		<div class="cpForm obo_contentbox" id="obotab<?=$section_id; ?>3">
-		<?php if ($use_wysiwyg) { ?>
+		
 			<div class="formRow">
 				<div class="settingName">
-					<?=$OBO['CONTENT_WYSIWYG']?> 3:
+					<?php echo $OBO['HEADLINE']?> 3:
 				</div>
 				<div class="settingValue">
-					<?php
-					show_wysiwyg_editor('content3_wysiwyg'.$section_id,'content3_wysiwyg'.$section_id,$content3_wysiwyg,'100%',$wysiwyg_size);
-					?>
+					<input type="text" value="<?php echo $obo_content3_headline; ?>" id="obo_content3_headline<?php echo $section_id; ?>" name="obo_content3_headline<?php echo $section_id; ?>">
 				</div>
 			</div>
-		<?php }
-		if ($use_code) { ?>
+					
+			
 			<div class="formRow">
 				<div class="settingName">
-					<?=$OBO['CONTENT_CODE']?> 3:
+					<?=$OBO['HEADLINE_SIZE']?>:
 				</div>
 				<div class="settingValue">
-					<textarea id="content3_code<?=$section_id?>" name="content3_code<?=$section_id?>"><?=$content3_code?></textarea>
+					<select id="obo_content3_headline_size<?=$section_id?>" name="obo_content3_headline_size<?=$section_id?>">
+						<option disabled>...</option>
+						<option <?php if ($obo_content3_headline_size=='h1') { echo 'selected'; } ?> value="h1">H1</option>					
+						<option <?php if ($obo_content3_headline_size=='h2') { echo 'selected'; } ?> value="h2">H2</option>					
+						<option <?php if ($obo_content3_headline_size=='h3') { echo 'selected'; } ?> value="h3">H3</option>					
+						<option <?php if ($obo_content3_headline_size=='h4') { echo 'selected'; } ?> value="h4">H4</option>					
+						<option <?php if ($obo_content3_headline_size=='h5') { echo 'selected'; } ?> value="h5">H5</option>					
+						<option <?php if ($obo_content3_headline_size=='div') { echo 'selected'; } ?> value="div">div</option>					
+						<option <?php if ($obo_content3_headline_size=='p') { echo 'selected'; } ?> value="p">p</option>					
+					</select>
 				</div>
 			</div>
-		<?php } ?>
-		</div>
-		<?php endif; ?>
+			
+				<div class="formRow">
+				<div class="settingName">
+					<?php echo $OBO['LINK_TO_PAGE_ID']?> 3:
+				</div>
+				<div class="settingValue">
+					<input type="number" value="<?php echo $obo_content3_link; ?>" id="obo_content3_link<?php echo $section_id; ?>" name="obo_content3_link<?php echo $section_id; ?>"><br>
+					<?php echo $OBO['LINK_TO_PAGE_ID_INFO'] ?>
+				</div>
+			</div>
+			
+			<div class="formRow">
+				<div class="settingName">
+					<?php echo $OBO['IMAGE']?> 3:
+				</div>
+				<div class="settingValue">
+					<input type="file" size="50" id="obo_content3_image<?php echo $section_id?>" name="obo_content3_image<?php echo $section_id?>"  value="" />  
+					<?php if ($obo_content3_image != '') { ?>
+					<input type="checkbox" id="obo_content3_delete_image<?php echo $section_id?>" name="obo_content3_delete_image<?php echo $section_id?>" value="Delete" ><label for="obo_content3_delete_image<?php echo $section_id?>"><?php echo $OBO['DELETE_IMAGE']?></label><br>
+					<input type="hidden" name="obo_image3_fullname<?php echo $section_id?>" value="<?php echo $obo_content3_image ?>" />
+					<?php $obo_content3_image_preview = str_replace('{SYSVAR:MEDIA_REL}', WB_URL.MEDIA_DIRECTORY, $obo_content3_image ); ?>
+					<img src="<?php echo $obo_content3_image_preview?>" style="width:100px; height:auto" title="" alt=""> 
+					<?php } ?>
+				</div>
+			</div>
+			<div class="formRow">
+				<div class="settingName">
+					<?php echo $OBO['IMAGE_ALT']?> 3:
+				</div>
+				<div class="settingValue">
+					<input type="text" value="<?php echo $obo_content3_image_alt; ?>" id="obo_content3_img_alt<?php echo $section_id; ?>" name="obo_content3_img_alt<?php echo $section_id; ?>">
+				</div>
+			</div>
+		
+			<?php if ($use_wysiwyg) { ?>
+				<div class="formRow">
+					<div class="settingName">
+						<?=$OBO['CONTENT_WYSIWYG']?> 3:
+					</div>
+					<div class="settingValue">
+						<?php
+						show_wysiwyg_editor('content3_wysiwyg'.$section_id,'content3_wysiwyg'.$section_id,$content3_wysiwyg,'100%',$wysiwyg_size);
+						?>
+					</div>
+				</div>
+			<?php }
+			if ($use_code) { ?>
+				<div class="formRow">
+					<div class="settingName">
+						<?=$OBO['CONTENT_CODE']?> 3:
+					</div>
+					<div class="settingValue">
+						<textarea id="content3_code<?=$section_id?>" name="content3_code<?=$section_id?>"><?=$content3_code?></textarea>
+					</div>
+				</div>
+			<?php } ?>
+			</div>
+			<?php endif; ?>
+		
+		
+		<? // -------------------------------------------------------------------------------------------------------------------------------------------------- ?>
+		
 		<div class="cpForm obo_contentbox" id="obotab<?=$section_id; ?>4">
+		
+			<div class="formRow">
+				<div class="settingName">
+					<?php echo $OBO['GLOBAL_HEADLINE']?>:
+				</div>
+				<div class="settingValue">
+					<input type="text" value="<?php echo $obo_global_headline; ?>" id="obo_global_headline<?php echo $section_id; ?>" name="obo_global_headline<?php echo $section_id; ?>">
+				</div>
+			</div>
+			
+			<div class="formRow">
+				<div class="settingName">
+					<?=$OBO['GLOBAL_HEADLINE_SIZE']?>:
+				</div>
+				<div class="settingValue">
+					<select id="obo_global_headline_size<?=$section_id?>" name="obo_global_headline_size<?=$section_id?>">
+						<option disabled>...</option>
+						<option <?php if ($obo_global_headline_size=='h1') { echo 'selected'; } ?> value="h1">H1</option>					
+						<option <?php if ($obo_global_headline_size=='h2') { echo 'selected'; } ?> value="h2">H2</option>					
+						<option <?php if ($obo_global_headline_size=='h3') { echo 'selected'; } ?> value="h3">H3</option>					
+						<option <?php if ($obo_global_headline_size=='h4') { echo 'selected'; } ?> value="h4">H4</option>					
+						<option <?php if ($obo_global_headline_size=='h5') { echo 'selected'; } ?> value="h5">H5</option>					
+						<option <?php if ($obo_global_headline_size=='div') { echo 'selected'; } ?> value="div">div</option>					
+						<option <?php if ($obo_global_headline_size=='p') { echo 'selected'; } ?> value="p">p</option>					
+					</select>
+				</div>
+			</div>
+			
+			
+			<div class="formRow">
+				<div class="settingName">
+					<?php echo $OBO['BEFORE']?>:
+				</div>
+				<div class="settingValue">
+					<textarea id="obo_before<?php echo $section_id; ?>" name="obo_before<?php echo $section_id; ?>"><?php if ($obo_before!='') { echo $obo_before; } ?></textarea>				
+				</div>
+			</div>
+			
+			<div class="formRow">
+				<div class="settingName">
+					<?php echo $OBO['AFTER']?>:
+				</div>
+				<div class="settingValue">
+					<textarea id="obo_after<?php echo $section_id; ?>" name="obo_after<?php echo $section_id; ?>"><?php if ($obo_after!='') { echo $obo_after; } ?></textarea>				
+				</div>
+			</div>
 
 			<div class="formRow">
 				<div class="settingName">

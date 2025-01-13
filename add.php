@@ -22,6 +22,25 @@ $aInsert = array(
 	'content3_wysiwyg' => '',
 	'obo_modus'        => '',
 	'obo_dimensions'   => '',
+	'obo_global_headline'=>'',
+	'obo_global_headline_size'=>'',
+	'obo_before'=>'',
+	'obo_after'=>'',
+	'obo_content1_headline'=>'',
+	'obo_content1_headline_size'=>'',
+	'obo_content1_link'=>'',
+	'obo_content1_image'=>'',
+	'obo_content1_image_alt'=>'',
+	'obo_content2_headline'=>'',
+	'obo_content2_headline_size'=>'',
+	'obo_content2_link'=>'',
+	'obo_content2_image'=>'',
+	'obo_content2_image_alt'=>'',
+	'obo_content3_headline'=>'',
+	'obo_content3_headline_size'=>'',
+	'obo_content3_link'=>'',
+	'obo_content3_image'=>'',
+	'obo_content3_image_alt'=>''
 );
 
 

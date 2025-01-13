@@ -14,7 +14,7 @@ if(count(get_included_files()) ==1){$z="HTTP/1.0 404 Not Found";header($z);die($
 $module_directory = 'onebyone';
 $module_name = 'onebyone';
 $module_function = 'page';
-$module_version = '0.9.1';
+$module_version = '0.10.0';
 $module_platform = '1.4.x';
 $module_author = 'florian, Bernd Michna';
 $module_license = 'WTFPL';

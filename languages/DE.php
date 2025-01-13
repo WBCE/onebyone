@@ -26,4 +26,15 @@ $OBO['DIMENSIONS'] ='Aufteilung, wenn nicht 3 Blöcke';
 $OBO['MODUS'] ='Modus';
 $OBO['ONEBYONE'] ='Eins neben dem anderen';
 $OBO['3BLOCKS'] ='3 Blöcke';
+$OBO['BEFORE'] ='Code davor';
+$OBO['AFTER'] ='Code danach';
+$OBO['GLOBAL_HEADLINE'] = 'Abschnittsüberschrift';
+$OBO['GLOBAL_HEADLINE_SIZE'] = 'Abschnittsüberschrift Größe';
+$OBO['HEADLINE'] = 'Überschrift';
+$OBO['HEADLINE_SIZE'] = 'Überschrift Größe';
+$OBO['IMAGE'] = 'Bild';
+$OBO['IMAGE_ALT'] = 'Bild Alt-Text';
+$OBO['DELETE_IMAGE'] ='Bild löschen';
+$OBO['LINK_TO_PAGE_ID'] = 'Link zur Seite mit der ID... (z.B. 42)';
+$OBO['LINK_TO_PAGE_ID_INFO'] = 'ID (siehe Seitenübersicht) der Zielseite eingeben (wird nicht überprüft). Wenn nicht leer, werden Titel und Bild mit dieser Seite verlinkt.';
 

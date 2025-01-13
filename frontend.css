@@ -25,9 +25,9 @@
 	max-width:100%;
 	height:auto !important;
 }
-/* This ensures the outer gutters are equal to the (doubled) inner gutters.obo_ 
-.obo_grid .obo_unit:first-child { padding-left: 20px; }
-.obo_grid .obo_unit:last-child { padding-right: 20px; }*/
+/* This ensures the outer gutters are equal to the (doubled) inner gutters.obo_ */
+.obo_grid .obo_unit:first-child { padding-left: 0px; }
+.obo_grid .obo_unit:last-child { padding-right: 0px; }
 /* Nested grids already have padding though, so let’s nuke it */
 .obo_unit .obo_unit:first-child { padding-left: 0; }
 .obo_unit .obo_unit:last-child { padding-right: 0; }
@@ -82,8 +82,8 @@
   /* Stack anything that isn’t full-width on smaller screens */
   .obo_grid .obo_unit {
     width: 100% !important;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
   }
   .obo_unit .obo_grid .obo_unit {
     padding-left: 0px;
